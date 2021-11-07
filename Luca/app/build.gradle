@@ -50,7 +50,7 @@ android {
             applicationIdSuffix ".dev"
             signingConfig signingConfigs.debug
             matchingFallbacks = ['debug']
-            buildConfigField "String", "API_BASE_URL", '"https://app-dev.luca-app.de"'
+            buildConfigField "String", "API_BASE_URL", '"https://10.0.2.2"'
             buildConfigField "String", "STAGING_API_USERNAME", project.getProperties().getOrDefault("STAGING_API_USERNAME", '"<staging username>"')
             buildConfigField "String", "STAGING_API_PASSWORD", project.getProperties().getOrDefault("STAGING_API_PASSWORD", '"<staging password>"')
             buildConfigField "String", "COMMIT_HASH", project.getProperties().getOrDefault("COMMIT_HASH", '"<commit hash>"')
@@ -143,6 +143,10 @@ android {
         exclude 'draftv3/schema'
         exclude 'draftv4/schema'
     }
+}
+
+task wrapper(type: Wrapper){
+    gradleVersion = '7.2'
 }
 
 play {
